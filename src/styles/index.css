@@ -1,0 +1,10 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  background: url('../assets/temper-bg.svg') #f5f5f5 no-repeat;
+  background-size: cover;
+}

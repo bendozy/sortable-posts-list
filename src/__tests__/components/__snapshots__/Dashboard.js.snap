@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render a <App /> component 1`] = `
+<div
+  className="Dashboard container flex flex-wrap my-10 px-5"
+>
+  <div
+    className="w-full md:w-1/2 px-8"
+  >
+    <Connect(PostList) />
+  </div>
+  <div
+    className="w-full md:w-1/2 px-8"
+  >
+    <Connect(ActionList) />
+  </div>
+</div>
+`;

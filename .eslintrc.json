@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -25,6 +26,7 @@
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-named-as-default": 0
     }
 }
