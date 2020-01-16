@@ -9,20 +9,33 @@ export const Action = ({
   timeTravel: timeTravelAction,
   index,
 }) => {
-  const [style, setStyle] = useState({
-    opacity: 0,
-    transition: 'all 2s ease',
-  });
+  // const [style, setStyle] = useState({
+  //   opacity: 0,
+  //   transition: 'all 2s ease',
+  // });
 
-  useEffect(() => {
-    setStyle({
-      opacity: 1,
-      transition: 'all 2s ease',
-    });
-  }, [action]);
+  // useEffect(() => {
+  //   setStyle({
+  //     opacity: 1,
+  //     transition: 'all 2s ease',
+  //   });
+
+  //   return () => {
+  //     // setStyle({
+  //     //   opacity: 1,
+  //     //   transition: 'all 2s ease',
+  //     // });
+  //     setTimeout(() => {
+  //       console.log('removing');
+  //     }, 4000);
+  //   };
+  // }, [action]);
 
   return (
-    <div className="Action bg-white rounded p-3 shadow border flex flex-wrap" style={style}>
+    <div
+      className="Action bg-white rounded p-3 shadow border flex flex-wrap"
+      // style={style}
+    >
       <div className="sm:my-3 my-1 sm:text-base text-sm w-3/4 text-gray-700">
         {`Moved ${title} from index ${from} to index ${to}`}
       </div>

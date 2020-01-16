@@ -3,11 +3,13 @@ import {
   FETCH_POSTS_ERROR,
   MOVE_POST,
   UP,
+  REMOVE_LAST_ACTION,
 } from '../constants';
 
 export const initialState = {
   posts: [],
-  order: [],
+  from: 0,
+  to: 0,
   error: null,
   isLoading: true,
 };
@@ -17,8 +19,7 @@ export default (state = initialState, action) => {
     case FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.payload.posts,
-        order: action.payload.order,
+        posts: action.posts,
         isLoading: false,
       };
     case FETCH_POSTS_ERROR:
@@ -28,22 +29,32 @@ export default (state = initialState, action) => {
         isLoading: false,
       };
     case MOVE_POST: {
-      const { direction, post: { index } } = action.payload;
-      const nextIndex = direction === UP ? index - 1 : index + 1;
-      const uposts = [...state.posts];
-      // const post = state.posts[index];
-      // const posts = state.posts.filter((p, i) => index !== i);
-      // posts.splice(nextIndex, 0, post);
-
-      const temp = uposts[index];
-      uposts[index] = uposts[nextIndex];
-      uposts[nextIndex] = temp;
-
-      console.log(uposts);
+      const { direction, index: from } = action.payload;
+      const to = direction === UP ? from - 1 : from + 1;
+      const { posts } = state;
 
       return {
         ...state,
-        posts: [...uposts],
+        from,
+        to,
+        posts: posts.map((post, index) => {
+          if (index === from) return posts[to];
+          if (index === to) return posts[from];
+          return post;
+        }),
+      };
+    }
+    case REMOVE_LAST_ACTION: {
+      const { posts } = state;
+      const { from, to } = action.lastAction;
+
+      return {
+        ...state,
+        posts: posts.map((post, index) => {
+          if (index === from) return posts[to];
+          if (index === to) return posts[from];
+          return post;
+        }),
       };
     }
     default:

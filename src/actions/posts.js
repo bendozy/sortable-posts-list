@@ -7,10 +7,7 @@ import {
 
 export const fetchPostsSuccess = (posts) => ({
   type: FETCH_POSTS_SUCCESS,
-  payload: {
-    posts: posts.map((post, index) => ({ ...post, index })),
-    index: Array.from({ length: posts.length }, (v, i) => i),
-  },
+  posts: posts.map((post) => ({ ...post })),
 });
 
 export const fetchPostsError = (error) => ({
@@ -19,11 +16,11 @@ export const fetchPostsError = (error) => ({
 });
 
 export const fetchPosts = () => (dispatch) => axios.get('https://jsonplaceholder.typicode.com/posts')
-  .then((response) => dispatch(fetchPostsSuccess(response.data.splice(0, 5))))
+  .then((response) => dispatch(fetchPostsSuccess(response.data.slice(0, 5))))
   .catch((error) => dispatch(fetchPostsError(error)));
 
 
-export const movePost = (direction, post) => ({
+export const movePost = (payload) => ({
   type: MOVE_POST,
-  payload: { direction, post },
+  payload,
 });

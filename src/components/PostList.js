@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 import { connect } from 'react-redux';
 import Post from './Post';
 import { fetchPosts } from '../actions/posts';
@@ -8,23 +12,43 @@ import spinner from '../assets/Spinner.svg';
 
 import '../styles/PostList.css';
 
-export const PostList = (props) => {
-  const { posts: { isLoading, posts } } = props;
-  
-
+export const PostList = ({
+  posts: {
+    isLoading,
+    posts,
+  },
+  fetchPosts: fetchPostsAction,
+}) => {
   useEffect(() => {
-    props.fetchPosts();
-  }, []);
+    fetchPostsAction();
+  }, [fetchPostsAction]);
 
-  const postCards = posts.map((post) => (
-    <Post key={post.id} post={post} lastIndex={posts.length - 1} />
+
+  const postCards = posts.map((post, index) => (
+    <CSSTransition
+      key={post.id}
+      timeout={2000}
+      classNames="item"
+    >
+      <Post
+        post={post}
+        index={index}
+        lastIndex={posts.length - 1}
+      />
+    </CSSTransition>
   ));
 
   return (
     <div className="PostList">
       <h1 className="mb-6 font-bold text-3xl text-white">Sortable Post List</h1>
       {isLoading && <img src={spinner} className="PostList-spinner" alt="loading-logo" />}
-      {!isLoading && postCards}
+      {!isLoading && (
+        <div className="PostList-cards">
+          <TransitionGroup className="todo-lists">
+            {postCards}
+          </TransitionGroup>
+        </div>
+      )}
     </div>
   );
 };
@@ -34,7 +58,6 @@ PostList.propTypes = {
   posts: PropTypes.shape({
     isLoading: PropTypes.bool.isRequired,
     posts: PropTypes.arrayOf(PropTypes.object),
-    order: PropTypes.arrayOf(PropTypes.number),
   }).isRequired,
 };
 
