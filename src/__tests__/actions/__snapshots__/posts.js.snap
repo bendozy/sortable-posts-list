@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Posts action tests dispatces error action if there is an issue with the api call 1`] = `
+Array [
+  Object {
+    "error": Object {
+      "data": "api error fetching data",
+    },
+    "type": "FETCH_POSTS_ERROR",
+  },
+]
+`;
+
+exports[`Posts action tests fetches post api data and dispatches first 5 1`] = `
+Array [
+  Object {
+    "posts": Array [
+      Object {
+        "id": 0,
+      },
+      Object {
+        "id": 1,
+      },
+      Object {
+        "id": 2,
+      },
+      Object {
+        "id": 3,
+      },
+      Object {
+        "id": 4,
+      },
+    ],
+    "type": "FETCH_POSTS_SUCCESS",
+  },
+]
+`;

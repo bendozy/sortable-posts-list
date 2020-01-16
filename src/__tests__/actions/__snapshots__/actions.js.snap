@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action creators tests dispatches only all actions in the actions reducer if index 0 is selected 1`] = `
+Array [
+  Object {
+    "lastAction": Object {
+      "index": 4,
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+  Object {
+    "lastAction": Object {
+      "index": 3,
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+  Object {
+    "lastAction": Object {
+      "index": 2,
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+  Object {
+    "lastAction": Object {
+      "index": 1,
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+  Object {
+    "lastAction": Object {
+      "index": 0,
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+]
+`;
+
+exports[`Action creators tests dispatches only one action if there is only an action Item in the actions reducer 1`] = `
+Array [
+  Object {
+    "lastAction": Object {
+      "from": 1,
+      "title": "hello",
+    },
+    "type": "REMOVE_LAST_ACTION",
+  },
+]
+`;
