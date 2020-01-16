@@ -46,3 +46,13 @@ Array [
   },
 ]
 `;
+
+exports[`Action creators tests should create an action to dispatch last item in the actions reducer 1`] = `
+Object {
+  "lastAction": Object {
+    "from": 1,
+    "title": "hello",
+  },
+  "type": "REMOVE_LAST_ACTION",
+}
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Actions reducer should add a moved down post action 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "from": 0,
+      "key": 0,
+      "title": "hello",
+      "to": 1,
+    },
+  ],
+  "nextKey": 1,
+}
+`;
+
+exports[`Actions reducer should add a moved up post action 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "from": 1,
+      "key": 0,
+      "title": "hello",
+      "to": 0,
+    },
+  ],
+  "nextKey": 1,
+}
+`;
+
+exports[`Actions reducer should remove the last action 1`] = `
+Object {
+  "actions": Array [],
+  "nextKey": 0,
+}
+`;
+
+exports[`Actions reducer should return the initial state 1`] = `
+Object {
+  "actions": Array [],
+  "nextKey": 0,
+}
+`;

@@ -20,6 +20,7 @@ describe('Action creators tests', () => {
     };
 
     expect(removeLastAction(lastAction)).toEqual(expectedAction);
+    expect(removeLastAction(lastAction)).toMatchSnapshot();
   });
 
   it('dispatches only one action if there is only an action Item in the actions reducer', () => {
