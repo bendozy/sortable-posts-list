@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Action /> should render a <Action /> component 1`] = `
+<div
+  className="Action bg-white rounded p-3 shadow border flex flex-wrap"
+>
+  <div
+    className="Action-message sm:my-3 my-1 sm:text-base text-sm w-3/4 text-gray-700"
+  >
+    Moved test from index 0 to index 1
+  </div>
+  <button
+    className="Action-button h-12 m-1 bg-green-200 rounded text-sm shadow sm:text-base w-1/5 text-gray-700"
+    onClick={[Function]}
+    type="button"
+  >
+    Time Travel
+  </button>
+</div>
+`;
