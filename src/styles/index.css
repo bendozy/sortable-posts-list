@@ -5,8 +5,14 @@
 @tailwind utilities;
 
 body {
-  background: url('../assets/temper-bg.svg') #f5f5f5 no-repeat;
+  background: url('../assets/temper-bg-mobile.svg') #f5f5f5 no-repeat;
   background-size: cover;
+}
+
+@media only screen and (min-width: 780px) {
+  body {
+    background: url('../assets/temper-bg.svg') #f5f5f5 no-repeat;
+  }
 }
 
 .item-enter {

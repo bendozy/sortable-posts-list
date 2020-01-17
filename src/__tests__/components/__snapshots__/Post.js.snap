@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Post /> should render a <Action /> component 1`] = `
+<div
+  className="Post bg-white shadow rounded mb-6 flex justify-between"
+>
+  <div
+    className="Post-title py-6 px-2 text-md"
+  >
+    test
+  </div>
+  <div
+    className="Post-buttons flex flex-col pr-2 justify-center"
+  >
+    <button
+      className="Post-button moveUp"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="text-2xl fa fa-angle-up"
+      />
+    </button>
+    <button
+      className="Post-button moveDown"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="text-2xl fa fa-angle-down"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<Post /> should render a only DOWN button at first index 1`] = `
+<div
+  className="Post bg-white shadow rounded mb-6 flex justify-between"
+>
+  <div
+    className="Post-title py-6 px-2 text-md"
+  >
+    test
+  </div>
+  <div
+    className="Post-buttons flex flex-col pr-2 justify-center"
+  >
+    <button
+      className="Post-button moveDown"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="text-2xl fa fa-angle-down"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<Post /> should render a only UP button at last index 1`] = `
+<div
+  className="Post bg-white shadow rounded mb-6 flex justify-between"
+>
+  <div
+    className="Post-title py-6 px-2 text-md"
+  >
+    test
+  </div>
+  <div
+    className="Post-buttons flex flex-col pr-2 justify-center"
+  >
+    <button
+      className="Post-button moveUp"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="text-2xl fa fa-angle-up"
+      />
+    </button>
+  </div>
+</div>
+`;

@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
+import FlipMove from 'react-flip-move';
 import { connect } from 'react-redux';
 import Post from './Post';
-import { fetchPosts } from '../actions/posts';
+import { fetchPosts, movePost } from '../actions/posts';
 
 import spinner from '../assets/Spinner.svg';
 
@@ -18,6 +15,7 @@ export const PostList = ({
     posts,
   },
   fetchPosts: fetchPostsAction,
+  movePost: movePostAction,
 }) => {
   useEffect(() => {
     fetchPostsAction();
@@ -25,28 +23,24 @@ export const PostList = ({
 
 
   const postCards = posts.map((post, index) => (
-    <CSSTransition
+    <Post
       key={post.id}
-      timeout={2000}
-      classNames="item"
-    >
-      <Post
-        post={post}
-        index={index}
-        lastIndex={posts.length - 1}
-      />
-    </CSSTransition>
+      post={post}
+      index={index}
+      lastIndex={posts.length - 1}
+      movePost={movePostAction}
+    />
   ));
 
   return (
     <div className="PostList">
-      <h1 className="PostList-titlemb-6 font-bold text-3xl text-white">Sortable Post List</h1>
+      <h1 className="PostList-title mb-6 font-bold text-3xl text-white">Sortable Post List</h1>
       {isLoading && <img src={spinner} className="PostList-spinner" alt="loading-logo" />}
       {!isLoading && (
         <div className="PostList-items">
-          <TransitionGroup className="todo-lists">
+          <FlipMove duration={300}>
             {postCards}
-          </TransitionGroup>
+          </FlipMove>
         </div>
       )}
     </div>
@@ -59,12 +53,14 @@ PostList.propTypes = {
     isLoading: PropTypes.bool.isRequired,
     posts: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
+  movePost: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = ({ posts }) => ({ posts });
 
 export const mapDispatchToProps = {
   fetchPosts,
+  movePost,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);

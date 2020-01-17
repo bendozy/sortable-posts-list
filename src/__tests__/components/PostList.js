@@ -1,15 +1,14 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
+import FlipMove from 'react-flip-move';
 import { PostList, mapStateToProps } from '../../components/PostList';
 import Post from '../../components/Post';
 
 const fetchPosts = jest.fn();
+const movePost = jest.fn();
 
 jest.mock('../../components/Post', () => () => 'Post');
-jest.mock('react-redux', () => ({
-  connect: () => (wrappedComponent) => wrappedComponent,
-}));
+jest.mock('react-flip-move', () => () => 'FlipMove');
 
 describe('<PostList />', () => {
   it('should render a <PostList /> component', () => {
@@ -17,7 +16,13 @@ describe('<PostList />', () => {
       posts: [],
       isLoading: true,
     };
-    const wrapper = shallow(<PostList fetchPosts={fetchPosts} posts={posts} />);
+    const wrapper = shallow(
+      <PostList
+        fetchPosts={fetchPosts}
+        posts={posts}
+        movePost={movePost}
+      />,
+    );
 
     expect(wrapper.find(Post)).toHaveLength(0);
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -28,21 +33,26 @@ describe('<PostList />', () => {
       posts: [],
       isLoading: true,
     };
-    const wrapper = mount(<PostList fetchPosts={fetchPosts} posts={posts} />);
+    const wrapper = mount(
+      <PostList
+        fetchPosts={fetchPosts}
+        movePost={movePost}
+        posts={posts}
+      />,
+    );
 
-    expect(wrapper.find(Post)).toHaveLength(0);
-
-    act(() => {
-      wrapper.setProps({
-        posts: {
-          posts: [
-            { id: 'test1' },
-            { id: 'test2' },
-          ],
-          isLoading: false,
-        },
-      });
+    wrapper.setProps({
+      posts: {
+        posts: [
+          { title: 'test1', id: 1 },
+          { title: 'test2', id: 2 },
+        ],
+        isLoading: false,
+      },
+      movePost,
     });
+
+    expect(wrapper.find(FlipMove)).toHaveLength(1);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 

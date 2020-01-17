@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { Action } from '../../components/Action';
+import Action from '../../components/Action';
 
 describe('<Action />', () => {
   let wrapper;

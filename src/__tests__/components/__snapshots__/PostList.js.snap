@@ -34,15 +34,18 @@ exports[`<PostList /> should update a <PostList /> component 1`] = `
       ],
     }
   }
+  movePost={[MockFunction]}
   posts={
     Object {
       "isLoading": false,
       "posts": Array [
         Object {
-          "id": "test1",
+          "id": 1,
+          "title": "test1",
         },
         Object {
-          "id": "test2",
+          "id": 2,
+          "title": "test2",
         },
       ],
     }
@@ -59,86 +62,11 @@ exports[`<PostList /> should update a <PostList /> component 1`] = `
     <div
       className="PostList-items"
     >
-      <TransitionGroup
-        childFactory={[Function]}
-        className="todo-lists"
-        component="div"
+      <Component
+        duration={300}
       >
-        <div
-          className="todo-lists"
-        >
-          <CSSTransition
-            classNames="item"
-            in={true}
-            key=".$test1"
-            onExited={[Function]}
-            timeout={2000}
-          >
-            <Transition
-              appear={false}
-              enter={true}
-              exit={true}
-              in={true}
-              mountOnEnter={false}
-              onEnter={[Function]}
-              onEntered={[Function]}
-              onEntering={[Function]}
-              onExit={[Function]}
-              onExited={[Function]}
-              onExiting={[Function]}
-              timeout={2000}
-              unmountOnExit={false}
-            >
-              <Component
-                index={0}
-                lastIndex={1}
-                post={
-                  Object {
-                    "id": "test1",
-                  }
-                }
-              >
-                Post
-              </Component>
-            </Transition>
-          </CSSTransition>
-          <CSSTransition
-            classNames="item"
-            in={true}
-            key=".$test2"
-            onExited={[Function]}
-            timeout={2000}
-          >
-            <Transition
-              appear={false}
-              enter={true}
-              exit={true}
-              in={true}
-              mountOnEnter={false}
-              onEnter={[Function]}
-              onEntered={[Function]}
-              onEntering={[Function]}
-              onExit={[Function]}
-              onExited={[Function]}
-              onExiting={[Function]}
-              timeout={2000}
-              unmountOnExit={false}
-            >
-              <Component
-                index={1}
-                lastIndex={1}
-                post={
-                  Object {
-                    "id": "test2",
-                  }
-                }
-              >
-                Post
-              </Component>
-            </Transition>
-          </CSSTransition>
-        </div>
-      </TransitionGroup>
+        FlipMove
+      </Component>
     </div>
   </div>
 </PostList>

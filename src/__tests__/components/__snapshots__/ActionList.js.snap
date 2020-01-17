@@ -1,29 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ActionList /> should render a loading component 1`] = `
-<div
-  className="ActionList"
->
-  <div
-    className="bg-white rounded shadow-md overflow-hidden"
-  >
-    <div
-      className="ActionList-title font-semibold bg-white p-4 text-gray-800 text-xl"
-    >
-      List of actions commited
-    </div>
-    <div
-      className="ActionList-loading bg-white p-4 rounded shadow-md text-gray-500"
-    >
-      <span>
-        No actions commited
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<ActionList /> should render a loading component 2`] = `
+exports[`<ActionList /> should render a component with action list items 1`] = `
 <div
   className="ActionList"
 >
@@ -38,46 +15,89 @@ exports[`<ActionList /> should render a loading component 2`] = `
     <div
       className="ActionList-items bg-gray-300 p-6 border border-gray-300 overflow-hidden shadow-md"
     >
-      <TransitionGroup
-        childFactory={[Function]}
-        className="action-list"
-        component="div"
+      <FlipMovePropConverter
+        delay={0}
+        disableAllAnimations={false}
+        duration={300}
+        easing="ease-in-out"
+        enterAnimation="elevator"
+        getPosition={[Function]}
+        leaveAnimation="elevator"
+        maintainContainerHeight={false}
+        staggerDelayBy={0}
+        staggerDurationBy={0}
+        typeName="div"
+        verticalAlignment="top"
       >
-        <CSSTransition
-          classNames="item"
+        <Action
+          action={
+            Object {
+              "from": 1,
+              "key": 1,
+              "title": "test2",
+              "to": 2,
+            }
+          }
+          index={1}
           key="1"
-          timeout={500}
-        >
-          <Component
-            action={
-              Object {
-                "from": 1,
-                "key": 1,
-                "title": "test2",
-                "to": 2,
-              }
+          timeTravel={[MockFunction]}
+        />
+        <Action
+          action={
+            Object {
+              "from": 0,
+              "key": 0,
+              "title": "test1",
+              "to": 1,
             }
-            index={1}
-          />
-        </CSSTransition>
-        <CSSTransition
-          classNames="item"
+          }
+          index={0}
           key="0"
-          timeout={500}
+          timeTravel={[MockFunction]}
+        />
+      </FlipMovePropConverter>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActionList /> should render a loading component 1`] = `
+<div
+  className="ActionList"
+>
+  <div
+    className="bg-white rounded shadow-md overflow-hidden"
+  >
+    <div
+      className="ActionList-title font-semibold bg-white p-4 text-gray-800 text-xl"
+    >
+      List of actions commited
+    </div>
+    <div
+      className="ActionList-items bg-gray-300 p-6 border border-gray-300 overflow-hidden shadow-md"
+    >
+      <FlipMovePropConverter
+        delay={0}
+        disableAllAnimations={false}
+        duration={300}
+        easing="ease-in-out"
+        enterAnimation="elevator"
+        getPosition={[Function]}
+        leaveAnimation="elevator"
+        maintainContainerHeight={false}
+        staggerDelayBy={0}
+        staggerDurationBy={0}
+        typeName="div"
+        verticalAlignment="top"
+      >
+        <div
+          className="ActionList-loading bg-white p-4 rounded shadow-md text-gray-500"
         >
-          <Component
-            action={
-              Object {
-                "from": 0,
-                "key": 0,
-                "title": "test1",
-                "to": 1,
-              }
-            }
-            index={0}
-          />
-        </CSSTransition>
-      </TransitionGroup>
+          <span>
+            No actions commited
+          </span>
+        </div>
+      </FlipMovePropConverter>
     </div>
   </div>
 </div>

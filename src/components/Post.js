@@ -1,45 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { movePost } from '../actions/posts';
 import { UP, DOWN } from '../constants';
 
-export const Post = ({
-  post: { title },
-  index,
-  post,
-  lastIndex,
-  movePost: movePostAction,
-}) => {
+// React Flip need the child component to not be stateless
+/* eslint-disable react/prefer-stateless-function */
+export default class Post extends React.Component {
+  render() {
+    const {
+      post: { title },
+      index,
+      post,
+      lastIndex,
+      movePost: movePostAction,
+    } = this.props;
 
-  return (
-    <div
-      className="bg-white shadow rounded mb-6 flex justify-between"
-    >
-      <div className="py-6 px-2">
-        <div className="text-md">{title}</div>
+    return (
+      <div className="Post bg-white shadow rounded mb-6 flex justify-between">
+        <div className="Post-title py-6 px-2 text-md">{title}</div>
+        <div className="Post-buttons flex flex-col pr-2 justify-center">
+          {index !== 0 && (
+            <button
+              type="button"
+              className="Post-button moveUp"
+              onClick={() => movePostAction({ direction: UP, post, index })}
+            >
+              <i className="text-2xl fa fa-angle-up" />
+            </button>
+          )}
+          {index !== lastIndex && (
+            <button
+              type="button"
+              className="Post-button moveDown"
+              onClick={() => movePostAction({ direction: DOWN, post, index })}
+            >
+              <i className="text-2xl fa fa-angle-down" />
+            </button>
+          )}
+        </div>
       </div>
-      <div className="flex flex-col pr-2 justify-center">
-        {index !== 0 && (
-          <button
-            type="button"
-            onClick={() => movePostAction({ direction: UP, post, index })}
-          >
-            <i className="text-2xl fa fa-angle-up" />
-          </button>
-        )}
-        {index !== lastIndex && (
-          <button
-            type="button"
-            onClick={() => movePostAction({ direction: DOWN, post, index })}
-          >
-            <i className="text-2xl fa fa-angle-down" />
-          </button>
-        )}
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Post.propTypes = {
   post: PropTypes.shape({
@@ -49,8 +50,3 @@ Post.propTypes = {
   lastIndex: PropTypes.number.isRequired,
   movePost: PropTypes.func.isRequired,
 };
-const mapDispatchToProps = {
-  movePost,
-};
-
-export default connect(null, mapDispatchToProps)(Post);
