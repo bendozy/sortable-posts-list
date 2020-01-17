@@ -5,7 +5,7 @@ exports[`<PostList /> should render a <PostList /> component 1`] = `
   className="PostList"
 >
   <h1
-    className="PostList-titlemb-6 font-bold text-3xl text-white"
+    className="PostList-title mb-6 font-bold text-3xl text-white"
   >
     Sortable Post List
   </h1>
@@ -55,7 +55,7 @@ exports[`<PostList /> should update a <PostList /> component 1`] = `
     className="PostList"
   >
     <h1
-      className="PostList-titlemb-6 font-bold text-3xl text-white"
+      className="PostList-title mb-6 font-bold text-3xl text-white"
     >
       Sortable Post List
     </h1>
