@@ -17,7 +17,7 @@ jest.mock('react-redux', () => ({
 describe('<ActionList />', () => {
   let wrapper;
 
-  xit('should render a loading component', () => {
+  it('should render a loading component', () => {
     const actions = [];
 
     wrapper = shallow(
@@ -34,7 +34,7 @@ describe('<ActionList />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  xit('should render a loading component', () => {
+  it('should render a loading component', () => {
     const actions = [
       {
         title: 'test1',

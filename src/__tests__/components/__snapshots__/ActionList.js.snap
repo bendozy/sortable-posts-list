@@ -48,7 +48,7 @@ exports[`<ActionList /> should render a loading component 2`] = `
           key="1"
           timeout={500}
         >
-          <Action
+          <Component
             action={
               Object {
                 "from": 1,
@@ -58,7 +58,6 @@ exports[`<ActionList /> should render a loading component 2`] = `
               }
             }
             index={1}
-            timeTravel={[Function]}
           />
         </CSSTransition>
         <CSSTransition
@@ -66,7 +65,7 @@ exports[`<ActionList /> should render a loading component 2`] = `
           key="0"
           timeout={500}
         >
-          <Action
+          <Component
             action={
               Object {
                 "from": 0,
@@ -76,7 +75,6 @@ exports[`<ActionList /> should render a loading component 2`] = `
               }
             }
             index={0}
-            timeTravel={[Function]}
           />
         </CSSTransition>
       </TransitionGroup>

@@ -12,7 +12,6 @@ export const ActionList = ({ actions }) => {
   const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
-    console.log(prevActionsRef.current, actions);
     if (actions.length === 0 && prevActionsRef.current.length > actions.length) {
       setTimeout(() => {
         setShowLoading(true);

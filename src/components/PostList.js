@@ -40,10 +40,10 @@ export const PostList = ({
 
   return (
     <div className="PostList">
-      <h1 className="mb-6 font-bold text-3xl text-white">Sortable Post List</h1>
+      <h1 className="PostList-titlemb-6 font-bold text-3xl text-white">Sortable Post List</h1>
       {isLoading && <img src={spinner} className="PostList-spinner" alt="loading-logo" />}
       {!isLoading && (
-        <div className="PostList-cards">
+        <div className="PostList-items">
           <TransitionGroup className="todo-lists">
             {postCards}
           </TransitionGroup>
@@ -63,7 +63,7 @@ PostList.propTypes = {
 
 export const mapStateToProps = ({ posts }) => ({ posts });
 
-const mapDispatchToProps = {
+export const mapDispatchToProps = {
   fetchPosts,
 };
 

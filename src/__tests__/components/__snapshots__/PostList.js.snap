@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostList /> should render a <PostList /> component 1`] = `
+<div
+  className="PostList"
+>
+  <h1
+    className="PostList-titlemb-6 font-bold text-3xl text-white"
+  >
+    Sortable Post List
+  </h1>
+  <img
+    alt="loading-logo"
+    className="PostList-spinner"
+    src="Spinner.svg"
+  />
+</div>
+`;
+
+exports[`<PostList /> should return correct props from mapStateToProps 1`] = `undefined`;
+
+exports[`<PostList /> should update a <PostList /> component 1`] = `
+<PostList
+  fetchPosts={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  posts={
+    Object {
+      "isLoading": false,
+      "posts": Array [
+        Object {
+          "id": "test1",
+        },
+        Object {
+          "id": "test2",
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="PostList"
+  >
+    <h1
+      className="PostList-titlemb-6 font-bold text-3xl text-white"
+    >
+      Sortable Post List
+    </h1>
+    <div
+      className="PostList-items"
+    >
+      <TransitionGroup
+        childFactory={[Function]}
+        className="todo-lists"
+        component="div"
+      >
+        <div
+          className="todo-lists"
+        >
+          <CSSTransition
+            classNames="item"
+            in={true}
+            key=".$test1"
+            onExited={[Function]}
+            timeout={2000}
+          >
+            <Transition
+              appear={false}
+              enter={true}
+              exit={true}
+              in={true}
+              mountOnEnter={false}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={2000}
+              unmountOnExit={false}
+            >
+              <Component
+                index={0}
+                lastIndex={1}
+                post={
+                  Object {
+                    "id": "test1",
+                  }
+                }
+              >
+                Post
+              </Component>
+            </Transition>
+          </CSSTransition>
+          <CSSTransition
+            classNames="item"
+            in={true}
+            key=".$test2"
+            onExited={[Function]}
+            timeout={2000}
+          >
+            <Transition
+              appear={false}
+              enter={true}
+              exit={true}
+              in={true}
+              mountOnEnter={false}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={2000}
+              unmountOnExit={false}
+            >
+              <Component
+                index={1}
+                lastIndex={1}
+                post={
+                  Object {
+                    "id": "test2",
+                  }
+                }
+              >
+                Post
+              </Component>
+            </Transition>
+          </CSSTransition>
+        </div>
+      </TransitionGroup>
+    </div>
+  </div>
+</PostList>
+`;
