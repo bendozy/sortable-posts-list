@@ -20,4 +20,5 @@ git clone https://github.com/bendozy/sortable-posts-list.git
 ## Testing
 
 * Run `yarn test` to run all tests.
+
 * Add `--coverage` for coverage.
